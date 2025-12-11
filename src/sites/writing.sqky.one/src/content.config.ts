@@ -9,7 +9,7 @@ const writings = defineCollection({
         title: z.string(),
         description: z.string().nullable().default(null),
         date: z.coerce.date(),
-        authors: z.array(z.string()).default(["Madeline Sparkles"]),
+        authors: z.array(z.string()).default(["Stella Sparkles"]),
         tags: z.array(z.string()).default([]),
     }),
 });

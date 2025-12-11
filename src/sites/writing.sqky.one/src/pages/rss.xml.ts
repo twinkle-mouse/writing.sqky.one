@@ -18,7 +18,13 @@ export async function GET(context: AstroGlobal) {
         title: siteName,
         site: context.site!,
         description: siteDesc,
-        customData: [`<atom:link href="${new URL("rss.xml", context.site)}" rel="self" type="application/rss+xml" />`].join(""),
+        xmlns: {
+            atom: "http://www.w3.org/2005/Atom",
+        },
+        customData: [
+            `<atom:link href="${new URL("rss.xml", context.site)}" rel="self" type="application/rss+xml" />`,
+            "<webMaster>twinkle@mouse.lgbt</webMaster>",
+        ].join(""),
         items: await Promise.all(
             writings.map(async (post) => {
                 const { Content } = await render(post);
@@ -30,12 +36,12 @@ export async function GET(context: AstroGlobal) {
                     title: post.data.title,
                     description: post.data.description || defaultDescription,
                     pubDate: post.data.date,
-                    author: post.data.authors.join(", "),
                     categories: post.data.tags,
                     link: `/writings/${post.id}/`,
                     content: sanitizeHtml(content.trim(), {
                         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
                     }),
+                    customData: [...post.data.authors.map((author) => `<dc:creator>${author}</dc:creator>`)].join(""),
                 };
             }),
         ),

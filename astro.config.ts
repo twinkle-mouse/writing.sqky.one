@@ -1,13 +1,9 @@
-import remarkBreaks from "remark-breaks";
-
-import remarkPreserveConsecutiveBlankLines from "./remark-preserve-consecutive-blank-lines";
-
 export class Site {
-    static Main = "Main_SqkyOne";
-    static Writing = "Writing_SqkyOne";
-    static Files = "Files_SqkyOne";
+    static SqkyOne = "Main_SqkyOne";
+    static TheSqkyOne = "Files_SqkyOne";
+    static WritingSqkyOne = "Writing_SqkyOne";
 }
-export const site = process.env["SITE_CONFIG"] || Site.Main;
+export const site = process.env["SITE_CONFIG"] || Site.SqkyOne;
 
 import path from "node:path";
 
@@ -16,28 +12,33 @@ import { defineConfig, fontProviders } from "astro/config";
 import compressor from "astro-compressor";
 import icon from "astro-icon";
 
-import mainSite from "./src/sites/sqky.one/astro.config";
-import theSqkyOne from "./src/sites/the.sqky.one/astro.config";
-import writing from "./src/sites/writing.sqky.one/astro.config";
+import cfg_sqky_one, { markdownProcessor as md_sqky_one } from "./src/sites/sqky.one/astro.config";
+import cfg_the_sqky_one, { markdownProcessor as md_the_sqky_one } from "./src/sites/the.sqky.one/astro.config";
+import cfg_writing_sqky_one, { markdownProcessor as md_writing_sqky_one } from "./src/sites/writing.sqky.one/astro.config";
 
 const dir = process.cwd();
 const fontsDir = path.join(dir, "fonts");
 const sitesDir = path.join(dir, "src", "sites");
 
-function getConfig() {
-    if (site === Site.Main) {
-        return { ...mainSite, srcDir: path.join(sitesDir, "sqky.one", "src") };
-    }
-    if (site === Site.Writing) {
-        return { ...writing, srcDir: path.join(sitesDir, "writing.sqky.one", "src") };
-    }
-    if (site === Site.Files) {
-        return { ...theSqkyOne, srcDir: path.join(sitesDir, "the.sqky.one", "src") };
-    }
+let config = undefined;
+let markdownProcessor = undefined;
 
+if (site === Site.SqkyOne) {
+    config = { ...cfg_sqky_one, srcDir: path.join(sitesDir, "sqky.one", "src") };
+    markdownProcessor = md_sqky_one;
+}
+if (site === Site.WritingSqkyOne) {
+    config = { ...cfg_writing_sqky_one, srcDir: path.join(sitesDir, "writing.sqky.one", "src") };
+    markdownProcessor = md_the_sqky_one;
+}
+if (site === Site.TheSqkyOne) {
+    config = { ...cfg_the_sqky_one, srcDir: path.join(sitesDir, "the.sqky.one", "src") };
+    markdownProcessor = md_writing_sqky_one;
+}
+
+if (config == undefined || markdownProcessor == undefined) {
     throw new Error(`Invalid site selection: ${site}`);
 }
-const config = getConfig();
 
 const IosevkaWeights = {
     100: "Thin",
@@ -103,9 +104,8 @@ export default defineConfig({
     },
 
     markdown: {
-        smartypants: false,
         ...(config.markdown || {}),
-        remarkPlugins: [remarkPreserveConsecutiveBlankLines, remarkBreaks, ...(config.markdown?.remarkPlugins || [])],
+        processor: markdownProcessor,
     },
 
     integrations: [

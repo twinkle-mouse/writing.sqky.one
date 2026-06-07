@@ -2,7 +2,7 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { defineCollection } from "astro:content";
 
-import { collections as parent } from "../../../content.config";
+import { collections as parent } from "$content.config";
 
 const ROOT = "./src/sites/writing.sqky.one";
 

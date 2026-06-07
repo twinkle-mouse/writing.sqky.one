@@ -1,3 +1,3 @@
-import { collections as parent } from "../../../content.config";
+import { collections as parent } from "$content.config";
 
 export const collections = { ...parent };

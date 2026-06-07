@@ -7,9 +7,9 @@ import { loadRenderers } from "astro:container";
 const renderers = await loadRenderers([getContainerRenderer()]);
 const container = await experimental_AstroContainer.create({ renderers });
 
-export const siteName = "Books of Squeaks";
+export const siteName = "Stardew Library";
 export const siteDesc =
-    "A place where I put all of my writings, or at least the ones I care enough to format and upload <3. Expect lots of emotions and vulnerability, and expect a hot personality.";
+    "Stories of the stars in your heart, lyrics of the twinkles in your eyes — Inherit the earth like it was meant to be, welcome to the Stardew Library 💖";
 
 export async function countWords(Content: AstroComponentFactory) {
     const body = await container.renderToString(Content);

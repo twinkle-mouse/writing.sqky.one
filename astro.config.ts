@@ -17,7 +17,7 @@ import cfg_the_sqky_one, { markdownProcessor as md_the_sqky_one } from "./src/si
 import cfg_writing_sqky_one, { markdownProcessor as md_writing_sqky_one } from "./src/sites/writing.sqky.one/astro.config";
 
 const dir = process.cwd();
-const fontsDir = path.join(dir, "fonts");
+const fontsDir = path.join(dir, "src", "fonts");
 const sitesDir = path.join(dir, "src", "sites");
 
 let config = undefined;
@@ -138,7 +138,7 @@ export default defineConfig({
         ...(config.integrations || []),
         mdx({}),
         icon({
-            iconDir: "./icons",
+            iconDir: "./src/icons",
         }),
         compressor(),
     ],

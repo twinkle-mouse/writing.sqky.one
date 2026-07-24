@@ -34,7 +34,10 @@ const spaceWidth = 0.263;
 
 <span
     {...props}
-    style={{ marginLeft: `${spaceBefore.length * spaceWidth}em`, marginRight: `${spaceAfter.length * spaceWidth}em` }}
+    style={{
+        marginLeft: spaceBefore && `${spaceBefore.length * spaceWidth}em`,
+        marginRight: spaceAfter && `${spaceAfter.length * spaceWidth}em`,
+    }}
     aria-hidden={(ariaHidden ?? "true") ? "true" : undefined}
     class:list={["emoji", cls]}
 >
@@ -49,6 +52,7 @@ const spaceWidth = 0.263;
         width: auto;
         height: auto;
         vertical-align: center;
+        overflow: hidden;
     }
 
     .emoji :global(svg) {

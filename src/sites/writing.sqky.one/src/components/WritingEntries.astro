@@ -24,7 +24,7 @@ type Props = {
                         </h3>
 
                         <time class="entry-date mono" datetime={entry.data.date!.toISOString()}>
-                            {entry.data.date!.toLocaleDateString("en-GB", { dateStyle: "long" })}
+                            {entry.data.date!.toLocaleDateString("en-GB", { dateStyle: "medium" })}
                         </time>
                     </hgroup>
 
@@ -160,7 +160,7 @@ type Props = {
             margin-left: 1rem;
 
             text-align: right;
-            text-wrap: wrap stable;
+            text-wrap: nowrap;
 
             font-size: 0.85rem;
             color: var(--slate400);

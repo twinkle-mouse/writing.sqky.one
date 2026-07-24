@@ -19,6 +19,18 @@ const { Content } = Astro.props;
             padding-block: 0.8em;
             padding-inline: 0.6rem;
         }
+
+        @media (max-width: 900px) {
+            .writing {
+                padding-block: 0.25em;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .writing {
+                padding-block: 0em;
+            }
+        }
     </style>
 
     <div id="content">
@@ -41,10 +53,24 @@ const { Content } = Astro.props;
             }
 
             #content {
-                font-size: large;
                 overflow: auto;
 
+                font-size: 1.25rem;
                 padding-inline: 1rem;
+            }
+
+            @media (max-width: 900px) {
+                #content {
+                    font-size: 1.1rem;
+                    padding-inline: 0.6rem;
+                }
+            }
+
+            @media (max-width: 640px) {
+                #content {
+                    font-size: 1rem;
+                    padding-inline: 0.25rem;
+                }
             }
 
             #content aside {
@@ -64,7 +90,7 @@ const { Content } = Astro.props;
                 border-radius: 5px;
             }
 
-            @media (max-width: 580px) {
+            @media (max-width: 640px) {
                 #content aside {
                     max-width: 100%;
                     width: 100%;
@@ -74,8 +100,8 @@ const { Content } = Astro.props;
             }
 
             #content p {
-                margin-block: 1.2em;
-                line-height: 1.5;
+                margin-block: 1em;
+                line-height: 1.4;
             }
 
             #content li {

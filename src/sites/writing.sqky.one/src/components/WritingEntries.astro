@@ -64,8 +64,9 @@ type Props = {
 
             width: 240px;
 
-            margin-left: 1.5rem;
-            margin-right: 0.25rem;
+            margin-left: 1.25rem;
+            margin-right: 0.3rem;
+            margin-top: 0.3rem;
         }
 
         .cover-art-img {
@@ -84,13 +85,13 @@ type Props = {
             }
         }
 
-        @media (max-width: 920px) {
+        @media (max-width: 900px) {
             .cover-art {
                 width: 180px;
             }
         }
 
-        @media (max-width: 580px) {
+        @media (max-width: 640px) {
             .entry-desc {
                 flex: none;
             }
@@ -131,7 +132,7 @@ type Props = {
         .entry-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: baseline;
             margin-bottom: 1rem;
         }
 
@@ -140,24 +141,25 @@ type Props = {
             margin: 0;
             border: none;
 
+            font-size: 1.55rem;
+
             width: fit-content;
         }
 
         .entry-title a {
-            font-size: 1.55rem;
             font-family: var(--serif);
             font-style: italic;
         }
 
-        @media (max-width: 580px) {
-            .entry-title a {
+        @media (max-width: 640px) {
+            .entry-title {
                 font-size: 1.3rem;
             }
         }
 
         .entry-date {
             width: max-content;
-            margin-left: 1rem;
+            margin-left: 0.7rem;
 
             text-align: right;
             text-wrap: nowrap;

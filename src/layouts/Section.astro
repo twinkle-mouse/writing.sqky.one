@@ -15,8 +15,8 @@ const { ...props } = Astro.props;
         height: fit-content;
 
         margin-inline: 1rem;
-        margin-block: 1.25rem;
-        padding: 1.15rem;
+        margin-block: 1.2rem;
+        padding: 1.25rem;
 
         border: 2px var(--sectionBorderColor) solid;
         border-radius: 0.35rem;
@@ -26,5 +26,13 @@ const { ...props } = Astro.props;
         box-shadow: var(--cardBoxShadow);
 
         overflow: auto;
+    }
+
+    @media (max-width: 900px) {
+        section {
+            margin-inline: 0.8rem;
+            margin-block: 0.85rem;
+            padding: 1rem;
+        }
     }
 </style>

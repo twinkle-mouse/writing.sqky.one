@@ -1,7 +1,4 @@
 ---
-import transflag from "@sqky-one/common/assets/transflag.svg";
-import { Image } from "astro:assets";
-
 const size = 96;
 ---
 
@@ -15,83 +12,12 @@ const size = 96;
             <div class="anim" style="animation: 4s linear infinite rotate; transform: rotate3d(1, 0, 0, 45deg)">
                 <div class="anim" style="animation: 6s linear infinite rotate; transform: rotate3d(0, 1, 0, 90deg)">
                     <div class="anim" style="animation: 8s linear infinite rotate; transform: rotate3d(0, 0, 1, 135deg)">
-                        <Image
-                            alt=""
-                            src={transflag}
-                            width={size}
-                            height={size}
-                            format="svg"
-                            quality="max"
-                            class="face"
-                            draggable="false"
-                            loading="eager"
-                            style=`transform: rotateZ(90deg) translateZ(calc(var(--s) / 2));`
-                        />
-
-                        <Image
-                            alt=""
-                            src={transflag}
-                            width={size}
-                            height={size}
-                            format="svg"
-                            quality="max"
-                            class="face"
-                            draggable="false"
-                            loading="eager"
-                            style=`transform: rotateZ(90deg) rotateY(180deg) translateZ(calc(var(--s) / 2));`
-                        />
-
-                        <Image
-                            alt=""
-                            src={transflag}
-                            width={size}
-                            height={size}
-                            format="svg"
-                            quality="max"
-                            class="face"
-                            draggable="false"
-                            loading="eager"
-                            style=`transform: rotateY(-90deg) translateZ(calc(var(--s) / 2));`
-                        />
-
-                        <Image
-                            alt=""
-                            src={transflag}
-                            width={size}
-                            height={size}
-                            format="svg"
-                            quality="max"
-                            class="face"
-                            draggable="false"
-                            loading="eager"
-                            style=`transform: rotateY(90deg) translateZ(calc(var(--s) / 2));`
-                        />
-
-                        <Image
-                            alt=""
-                            src={transflag}
-                            width={size}
-                            height={size}
-                            format="svg"
-                            quality="max"
-                            class="face"
-                            draggable="false"
-                            loading="eager"
-                            style=`transform: rotateX(90deg) translateZ(calc(var(--s) / 2));`
-                        />
-
-                        <Image
-                            alt=""
-                            src={transflag}
-                            width={size}
-                            height={size}
-                            format="svg"
-                            quality="max"
-                            class="face"
-                            draggable="false"
-                            loading="eager"
-                            style=`transform: rotateX(-90deg) translateZ(calc(var(--s) / 2));`
-                        />
+                        <div class="face" style=`transform: rotateZ(90deg) translateZ(calc(var(--s) / 2));` />
+                        <div class="face" style=`transform: rotateZ(90deg) rotateY(180deg) translateZ(calc(var(--s) / 2));` />
+                        <div class="face" style=`transform: rotateY(-90deg) translateZ(calc(var(--s) / 2));` />
+                        <div class="face" style=`transform: rotateY(90deg) translateZ(calc(var(--s) / 2));` />
+                        <div class="face" style=`transform: rotateX(90deg) translateZ(calc(var(--s) / 2));` />
+                        <div class="face" style=`transform: rotateX(-90deg) translateZ(calc(var(--s) / 2));` />
                     </div>
                 </div>
             </div>
@@ -152,8 +78,23 @@ const size = 96;
         display: block;
         position: absolute;
 
-        object-fit: fill;
-        image-rendering: pixelated;
+        width: var(--s);
+        height: var(--s);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-image: linear-gradient(
+            0deg,
+            #5ccefa,
+            #5ccefa 20%,
+            #f6a8b7 20%,
+            #f6a8b7 40%,
+            #fff 40%,
+            #fff 60%,
+            #f6a8b7 60%,
+            #f6a8b7 80%,
+            #5ccefa 80%,
+            #5ccefa
+        );
         box-shadow:
             0 0 2px #000,
             0 0 3px #000;

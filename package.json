@@ -35,7 +35,7 @@
         "@types/sanitize-html": "^2.16.2",
         "@typescript-eslint/parser": "^8.71.0",
         "@wordpress/wordcount": "4.56.0",
-        "astro": "^7.3.5",
+        "astro": "^7.4.0",
         "astro-compressor": "^2.0.1",
         "autoprefixer": "^10.6.1",
         "bluesky-profile-card-embed": "^1.0.1",
@@ -66,7 +66,7 @@
         "voronoi": "^1.0.0"
     },
     "dependencies": {
-        "@astrojs/node": "^11.1.6",
+        "@astrojs/node": "^11.1.8",
         "astro-icon": "1.2.0",
         "fuse.js": "^7.5.0"
     }
